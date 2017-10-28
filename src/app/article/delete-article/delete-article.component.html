@@ -1,0 +1,8 @@
+<h2 mat-dialog-title class="has-error alert-danger">Alerta</h2>
+<mat-dialog-content>
+  <p>El articulo seleccionado sera borrado, desea continuar?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="delete()" class="btn btn-primary">Aceptar</button>&nbsp;
+  <button mat-button [mat-dialog-close]="true" class="btn btn-primary">Cancelar</button>
+</mat-dialog-actions>

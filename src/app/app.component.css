@@ -1,0 +1,11 @@
+.mat-toolbar{
+    background-color: black;
+}
+.mat-toolbar a{
+    color: white;
+    padding: 5px;
+}
+.mat-toolbar a:hover{
+    color: black;
+    background-color: white;
+}

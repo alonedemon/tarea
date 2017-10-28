@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <mat-card class="example-card" *ngIf="!notFound">
+            <mat-card-header>
+              <mat-card-title>
+                <h3 class="title">
+                    {{titleForm}}
+                </h3>
+              </mat-card-title>
+            </mat-card-header>
+            <!-- <img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+            <mat-card-content>
+              <form #articleForm="ngForm">
+                <div [ngClass]="{'has-error':title.invalid && title.touched,'form-group':true}">
+                  <label>Titulo:</label>
+                  <input class="form-control" required type="text" name="title" [(ngModel)]="article.title" #title="ngModel" minlength="10"
+                   maxlength="25">
+                </div>
+                <div [ngClass]="{'has-error':body.invalid && body.touched,'form-group':true}">
+                    <label>Contenido:</label>
+                    <textarea class="form-control" minlength="10" maxlength="50" #body="ngModel" type="textarea" name="body" [(ngModel)]="article.body" required>
+                    </textarea>
+                  </div>
+                  <button mat-button (click)="validate()" [disabled]="!articleForm.valid" class="btn btn-primary">{{typeButton}}</button>
+                  <button mat-button (click)="cancel()" class="btn btn-primary">Cancel</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+          <div *ngIf="notFound">
+            <p>Articulo no encontrado.</p>
+          </div>
+    </div>
+    <div  *ngIf="message">
+      <p class="alert-success" >
+        {{message}}
+      </p>
+      <mat-spinner></mat-spinner>      
+    </div>
+  </div>
+  
